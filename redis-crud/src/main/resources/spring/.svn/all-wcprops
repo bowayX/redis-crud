@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/drugs-platform/!svn/ver/95/trunk/drugs-platform-manager/drugs-platform-manager-web/src/main/resources/spring
+END
+applicationContext-service.xml
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/drugs-platform/!svn/ver/33/trunk/drugs-platform-manager/drugs-platform-manager-web/src/main/resources/spring/applicationContext-service.xml
+END
+springmvc.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/svn/drugs-platform/!svn/ver/33/trunk/drugs-platform-manager/drugs-platform-manager-web/src/main/resources/spring/springmvc.xml
+END
+applicationContext-dao.xml
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/svn/drugs-platform/!svn/ver/95/trunk/drugs-platform-manager/drugs-platform-manager-web/src/main/resources/spring/applicationContext-dao.xml
+END
+applicationContext-trans.xml
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/svn/drugs-platform/!svn/ver/33/trunk/drugs-platform-manager/drugs-platform-manager-web/src/main/resources/spring/applicationContext-trans.xml
+END

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+	<!-- 数据源，事务控制 -->
+	<context:property-placeholder location="classpath:resource/*.properties" />
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<!-- 配置sqlsessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 指定mybatis全局配置文件的位置 -->
+		<property name="configLocation" value="classpath:mybatis/mybatis.config.xml"></property>
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 指定mybatis，mapper文件位置 -->
+		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+	</bean>
+	<!-- 配置扫描器，将mybatis接口的实现加入到ioc容器 -->
+	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 扫描所有dao接口的实现，加入到ioc容器中 
+		<property name="basePackage" value="com.znsd.mapper"></property> </bean> -->
+
+	<bean id="jedis" class="redis.clients.jedis.Jedis">
+		<constructor-arg name="host" value="${redis.host}"
+			type="java.lang.String" />
+		<constructor-arg name="port" value="${redis.port}"
+			type="int" />
+	</bean>
+</beans>
